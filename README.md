@@ -18,14 +18,6 @@ atpython
 
 # With ATP 
 
-docker run -it \
--v /my/host/machine/credentials/directory:/wallet \
--e DB_USER=$user \
--e DB_PASSWORD=$pass \
--e DB_CONNECTIONSTRING=$CONNECTIONSTRING \
--e TNS_ADMIN=/wallet \
-atpython
-
 sudo docker run -it -p 3000:3000 -v ~/Wallet_DB202001151800:/wallet -e DB_USER=hr -e DB_PASSWORD=Danielhernandez1108 -e DB_CONNECTIONSTRING=db202001151800_high -e TNS_ADMIN=/wallet atpython
 
 # Para verlo
