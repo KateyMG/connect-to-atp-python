@@ -1,0 +1,76 @@
+
+# INSETAR EMPLEADO
+{
+    "action": "insert_employee",
+    "id": 300, 
+    "first_name": "alex", 
+    "last_name": "mazariegos", 
+    "email": "am@gmail.com", 
+    "phone_number": "503.5710.7547", 
+    "hire_date": "2019-05-02", 
+    "job_id": "AD_ASST", 
+    "salary": 2234, 
+    "commission_pct": 0.7, 
+    "manager_id": 124, 
+    "department_id": null
+}
+# INSETAR PUESTO
+{
+    "action": "insert_puesto",
+    "id": "JOBID4", 
+    "job_title": "MANAGER",
+    "min_salary": 2000,
+    "max_salary": 10000
+}
+
+{
+    "action": "insert_region",
+    "region_id": 15,
+    "region_name": "EAST"
+    
+}
+
+{
+    "action": "insert_pais",
+    "country_id":"AM",
+    "country_name": "Amazonas",   
+    "region_id":2
+
+}
+
+{
+    "action": "insert_loc",
+    "location_id": 7,
+    "STREET_ADDRESS": "9255 la calle",
+    "postal_code": "01892",
+    "city": "Guatemala",
+    "state_province": "uatemala",
+    "country_id": "US"
+
+
+
+}
+
+#ACTUALIZAR
+
+{
+    "action": "actualizar",
+    "id": 111,
+    "salary": 198,
+    "job_id": "AD_ASST"
+}
+
+#ELIMINAR
+
+{
+    "action": "eliminar",
+    "id": 198
+}
+
+#CONSULTAR
+{
+    "action": "consultar",
+    "id": 204
+
+}
+

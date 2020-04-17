@@ -12,7 +12,6 @@ rs = cursor.execute("select current_timestamp from dual")
 print(rs.fetchall())
 rs = cursor.execute("select * from employees")
 print(rs.fetchall())
-print('hola')
 
 #Conteo de registros de todas las tablas de HR
 @app.route('/Conteo_Registros')
@@ -29,7 +28,24 @@ def insertar():
 #Actualizar puesto, salario de EMPLEADO (por id)
 @app.route('/Actualizar')
 def actualizar():
-    return 'Actualizar'
+    data = request.get_json()
+    action = data.get('action')
+
+    if action == "actualizar":
+        id = data.get('id')
+        salary = data.get('salary')
+        job_id = data.get('job_id')
+        sql = """update employees 
+        set salary = :salary, job_id = :job_id 
+        where employee_id = :employee_id"""
+        values = [
+            salary,
+            job_id,
+            id
+        ]
+        rs = cursor.execute(sql, values)
+        connection.commit()
+    return 'Actualizado'
 
 #Eliminar EMPLEADO (por id)
 @app.route('/Eliminar')
@@ -39,7 +55,21 @@ def eliminar():
 #Consultar Empleado (por id)
 @app.route('/Consultar')
 def consultar():
-    return 'Consultar'
+    data = request.get_json()
+    action = data.get('action')
+    
+    if action == "consultar":
+        id = data.get('id')
+        sql = """select * 
+        from employees 
+        where employee_id = :id
+        """
+        values = [id]
+        rs = cursor.execute(sql, values)
+        connection.commit()
+        return str(rs.fetchall())
+    
+    
 
 
 @app.route('/')
