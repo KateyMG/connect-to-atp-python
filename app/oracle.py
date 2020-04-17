@@ -13,6 +13,9 @@ print(rs.fetchall())
 rs = cursor.execute("select * from employees")
 print(rs.fetchall())
 
+with open('info.json') as file:
+    data = json.load(file)
+
 #Conteo de registros de todas las tablas de HR
 @app.route('/Conteo_Registros')
 def count():
