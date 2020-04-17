@@ -26,7 +26,7 @@ def insertar():
     return 'Insertar'
 
 #Actualizar puesto, salario de EMPLEADO (por id)
-@app.route('/Actualizar')
+@app.route('/Actualizar', methods=['GET'])
 def actualizar():
     data = request.get_json()
     action = data.get('action')
@@ -53,7 +53,7 @@ def eliminar():
     return 'Eliminar'
 
 #Consultar Empleado (por id)
-@app.route('/Consultar')
+@app.route('/Consultar', methods=['GET'])
 def consultar():
     data = request.get_json()
     action = data.get('action')
