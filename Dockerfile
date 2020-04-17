@@ -14,7 +14,9 @@ RUN yum update -y && \
   yum -y install python-pip && \
   pip install -U pip && \
   python -m pip install cx_Oracle && \
+  python -m pip install flask &&\
   yum install -y oracle-instantclient19.3-basic.x86_64 && \
   yum clean all && \
   echo Installed
+EXPOSE 3000
 CMD ["python", "oracle.py"]
