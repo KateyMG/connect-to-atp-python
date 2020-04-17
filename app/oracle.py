@@ -18,7 +18,7 @@ print('hola')
 @app.route('/Conteo_Registros')
 def count():
     rs= cursor.execute("select sum(to_number(extractvalue(xmltype(dbms_xmlgen.getxml(\'select count(*) c from \'||table_name)),\'/ROWSET/ROW/C\'))) count from user_tables")
-    return print(rs.fetchall())
+    return str(rs.fetchall())
 
 
 #Insertar EMPLEADO, PUESTO, REGION, PAIS, LOCATION 
