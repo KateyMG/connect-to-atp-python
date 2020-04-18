@@ -13,9 +13,6 @@ print(rs.fetchall())
 rs = cursor.execute("select * from employees")
 print(rs.fetchall())
 
-with open('info.json') as file:
-    data = json.load(file)
-
 #Conteo de registros de todas las tablas de HR
 @app.route('/Conteo_Registros')
 def count():
@@ -29,7 +26,7 @@ def insertar():
     return 'Insertar'
 
 #Actualizar puesto, salario de EMPLEADO (por id)
-@app.route('/Actualizar', methods=['GET'])
+@app.route('/Actualizar')
 def actualizar():
     data = request.get_json()
     action = data.get('action')
@@ -48,7 +45,7 @@ def actualizar():
         ]
         rs = cursor.execute(sql, values)
         connection.commit()
-    return 'Actualizado'
+    return 'Se ha Actualizado'
 
 #Eliminar EMPLEADO (por id)
 @app.route('/Eliminar')
