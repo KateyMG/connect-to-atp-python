@@ -75,9 +75,10 @@ Ya funciona
 }
 
 ------CONSULTAR-------
+//ya funciona
 {
     "action": "consultar",
-    "id": 204
+    "id": 190
 
 }
 

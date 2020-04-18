@@ -21,8 +21,70 @@ def count():
 
 
 #Insertar EMPLEADO, PUESTO, REGION, PAIS, LOCATION 
-@app.route('/Insertar')
+@app.route('/Insertar_e')
 def insertar():
+    data = request.get_json()
+    opt = data.get('opt')
+    e_id = data.get('id')
+    first_name = data.get('first_name')
+    last_name = data.get('last_name')
+    email = data.get('email')
+    phone_number = data.get('phone_number')
+    hire_date = data.get('hire_date')
+    job_id = data.get('job_id')
+    salary = data.get('salary')
+    comission_pct = data.get('comission_pct')
+    manager_id = data.get('manager_id')
+    department_id = data.get('department_id')
+
+    if opt == 'insert':
+        sql = """insert into employees 
+            (
+                employee_id, 
+                first_name, 
+                last_name, 
+                email, 
+                phone_number, 
+                hire_date, 
+                job_id, 
+                salary, 
+                comission_pct, 
+                manager_id, 
+                department_id
+            )
+        values 
+            (
+                :employee_id, 
+                :first_name, 
+                :last_name, 
+                :email, 
+                :phone_number, 
+                to_date(:hire_date, 'YYYY-MM-DD'), 
+                :job_id, 
+                :salary, 
+                :comission_pct, 
+                :manager_id, 
+                :department_id
+            );"""
+
+        values = [  
+            e_id, 
+            first_name, 
+            last_name, 
+            email, 
+            phone_number, 
+            hire_date, 
+            job_id, 
+            salary, 
+            comission_pct, 
+            manager_id, 
+            department_id
+            ]
+        rs = cursor.execute(sql, values)
+        connection.commit()
+        print(rs)
+    
+
     return 'Insertar'
 
 #Actualizar puesto, salario de EMPLEADO (por id)
@@ -37,7 +99,7 @@ def actualizar():
         job_id = data.get('job_id')
         sql = """update employees 
         set salary = :salary, job_id = :job_id 
-        where employee_id = :employee_id"""
+        where employee_id = :id"""
         values = [
             salary,
             job_id,
@@ -45,15 +107,28 @@ def actualizar():
         ]
         rs = cursor.execute(sql, values)
         connection.commit()
+        print(rs.fetchall())
     return 'Se ha Actualizado'
 
 #Eliminar EMPLEADO (por id)
 @app.route('/Eliminar')
 def eliminar():
-    return 'Eliminar'
+    data = request.get_json()
+    action = data.get('action')
+
+    if action == "eliminar":
+        id = data.get('id')
+        sql = """delete from employees
+        where employee_id = :id"""
+        values = [
+            id]
+        rs = cursor.execute(sql, values)
+        connection.commit()
+        print(rs.fetchall())
+    return 'Se ha eliminado'
 
 #Consultar Empleado (por id)
-@app.route('/Consultar', methods=['GET'])
+@app.route('/Consultar')
 def consultar():
     data = request.get_json()
     action = data.get('action')
