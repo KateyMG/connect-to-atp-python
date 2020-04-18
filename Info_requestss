@@ -1,5 +1,9 @@
+------Conteo Registros-----
+Ya funciona
 
-# INSETAR EMPLEADO
+
+-----INSETAR---------
+//empleado
 {
     "action": "insert_employee",
     "id": 300, 
@@ -14,7 +18,8 @@
     "manager_id": 124, 
     "department_id": null
 }
-# INSETAR PUESTO
+
+//puesto
 {
     "action": "insert_puesto",
     "id": "JOBID4", 
@@ -23,6 +28,8 @@
     "max_salary": 10000
 }
 
+
+//region
 {
     "action": "insert_region",
     "region_id": 15,
@@ -30,6 +37,8 @@
     
 }
 
+
+//pais
 {
     "action": "insert_pais",
     "country_id":"AM",
@@ -38,6 +47,7 @@
 
 }
 
+//location
 {
     "action": "insert_loc",
     "location_id": 7,
@@ -46,13 +56,10 @@
     "city": "Guatemala",
     "state_province": "uatemala",
     "country_id": "US"
-
-
-
 }
 
-#ACTUALIZAR
-
+-------ACTUALIZAR-----
+//Esto ya funciona
 {
     "action": "actualizar",
     "id": 111,
@@ -60,14 +67,14 @@
     "job_id": "AD_ASST"
 }
 
-#ELIMINAR
+------ELIMINAR------
 
 {
     "action": "eliminar",
     "id": 198
 }
 
-#CONSULTAR
+------CONSULTAR-------
 {
     "action": "consultar",
     "id": 204
