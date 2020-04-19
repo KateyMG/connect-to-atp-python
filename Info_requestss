@@ -62,10 +62,11 @@ Ya funciona
 //Esto ya funciona
 {
     "action": "actualizar",
-    "id": 111,
-    "salary": 198,
-    "job_id": "AD_ASST"
+    "id": 198,
+    "salary": 2000,
+    "job_id": "FI_ACCOUNT"
 }
+#Hay constraints....
 
 ------ELIMINAR------
 

@@ -83,7 +83,7 @@ def insertar():
             ]
         rs = cursor.execute(sql, values)
         connection.commit()
-        return "Se ha insertado un empleado"
+        return 'Se ha insertado un empleado'
 
 #Actualizar puesto, salario de EMPLEADO (por id)
 @app.route('/Actualizar')
