@@ -30,4 +30,6 @@ sudo docker rmi atpython
 # Para verlo
 http://3.132.215.60:3000/
 
-# With PostgreSQL AWS RDS
+# With RDS
+docker run -it -p 3000:3000 -e DB_USER=ORCL -e DB_PASSWORD=Genesis16 -e DB_CONNECTIONSTRING=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=orcl.cp33mxtl2s3w.us-east-2.rds.amazonaws.com)(PORT=1521))(CONNECT_DATA=(SID=ORCL))) atpython
+
