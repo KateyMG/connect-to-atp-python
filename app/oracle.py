@@ -198,7 +198,7 @@ def insertar():
         connection.commit()
 
 
-    return 'Insertado' + opt
+    return 'Insertado' 
 
 #Actualizar puesto, salario de EMPLEADO (por id)
 @app.route('/Actualizar')
