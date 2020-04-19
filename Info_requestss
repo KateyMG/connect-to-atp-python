@@ -4,6 +4,7 @@ Ya funciona
 
 -----INSETAR---------
 //empleado
+#funciona por fin
 {
     "action": "insert_employee",
     "id": 300, 
@@ -69,7 +70,7 @@ Ya funciona
 #Hay constraints....
 
 ------ELIMINAR------
-
+#Ya funciona con el nuevo que inserte
 {
     "action": "eliminar",
     "id": 198

@@ -84,6 +84,40 @@ def insertar():
 
     return 'Se ha insertado un empleado'
 
+@app.route('/Insert_puesto')
+def insertp():
+    data = request.get_json()
+    action = data.get('action')
+    if action == 'insert_puesto':
+        job_id = data.get('id')
+        job_title = data.get('job_title')
+        min_salary = data.get('min_salary')
+        max_salary = data.get('max_salary')
+        sql = """insert into jobs 
+            (
+                job_id,
+                job_title,
+                min_salary,
+                max_salary
+            )
+        values 
+            (
+                :job_id,
+                :job_title,
+                :min_salary,
+                :max_salary
+            )"""
+        values = [  
+            job_id, 
+            job_title,
+            min_salary, 
+            max_salary, 
+            ]
+        rs = cursor.execute(sql, values)
+        connection.commit()
+
+    return 'Se ha insertada un puesto'
+
 #Actualizar puesto, salario de EMPLEADO (por id)
 @app.route('/Actualizar')
 def actualizar():
