@@ -118,7 +118,7 @@ def insertp():
 
     return 'Se ha insertada un puesto'
 
-@app.route('Insert_region')
+@app.route('/Insert_region')
 def insert_region():
     data = request.get_json()
     action = data.get('action')
@@ -145,7 +145,7 @@ def insert_region():
 
     return 'Se ha insertado una region'
 
-@app.route('Insert_pais')
+@app.route('/Insert_pais')
 def insert_country():
     data = request.get_json()
     action = data.get('action')
@@ -176,7 +176,7 @@ def insert_country():
 
     return 'Se ha insertado una pais'
 
-@app.route('Insert_loc')
+@app.route('/Insert_loc')
 def insert_loc():
     data = request.get_json()
     action = data.get('action')
