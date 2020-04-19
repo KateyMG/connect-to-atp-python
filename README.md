@@ -20,6 +20,12 @@ atpython
 
 sudo docker run -it -p 3000:3000 -v ~/Wallet_DB202001151800:/wallet -e DB_USER=hr -e DB_PASSWORD=Danielhernandez1108 -e DB_CONNECTIONSTRING=db202001151800_high -e TNS_ADMIN=/wallet atpython
 
+# Docker 
+sudo docker stop $(sudo docker ps -a -q)
+sudo docker rm $(sudo docker ps -a -q)
+
+sudo docker rmi atpython
+
 # Para verlo
 http://3.132.215.60:3000/
 
