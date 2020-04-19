@@ -32,6 +32,7 @@ Ya funciona
 
 
 //region
+#funciona
 {
     "action": "insert_region",
     "region_id": 15,
@@ -41,6 +42,7 @@ Ya funciona
 
 
 //pais
+#funciona
 {
     "action": "insert_pais",
     "country_id":"AM",
@@ -50,6 +52,7 @@ Ya funciona
 }
 
 //location
+#funciona
 {
     "action": "insert_loc",
     "location_id": 7,

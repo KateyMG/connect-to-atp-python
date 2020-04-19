@@ -1,5 +1,5 @@
 # connect to atp using docker and python
-Datos 1 
+Proyecto 2, Datos I
 
 # Change this in the ora file
 WALLET_LOCATION = (SOURCE = (METHOD = file) (METHOD_DATA = (DIRECTORY="/wallet")))
