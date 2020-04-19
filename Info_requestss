@@ -2,7 +2,7 @@
 Ya funciona
 
 
------INSETAR---------
+-----INSERTAR---------
 //empleado
 #funciona por fin
 {
@@ -21,6 +21,7 @@ Ya funciona
 }
 
 //puesto
+#funciona
 {
     "action": "insert_puesto",
     "id": "JOBID4", 

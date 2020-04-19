@@ -118,6 +118,107 @@ def insertp():
 
     return 'Se ha insertada un puesto'
 
+@app.route('Insert_region')
+def insert_region():
+    data = request.get_json()
+    action = data.get('action')
+    
+    if action == 'insert_region':
+        region_id = data.get('region_id')
+        region_name = data.get('region_name')
+        sql = """insert into regions
+            (
+                region_id,
+                region_name
+            )
+        values 
+            (
+                :region_id,
+                :region_name
+            )"""
+        values = [  
+            region_id, 
+            region_name
+            ]
+        rs = cursor.execute(sql, values)
+        connection.commit()
+
+    return 'Se ha insertado una region'
+
+@app.route('Insert_pais')
+def insert_country():
+    data = request.get_json()
+    action = data.get('action')
+
+    if action == 'insert_pais':
+        country_id = data.get('country_id')
+        country_name = data.get('country_name')
+        region_id = data.get('region_id')
+        sql = """insert into countries 
+            (
+                country_id,
+                country_name,
+                region_id
+            )
+        values 
+            (
+                :country_id,
+                :country_name,
+                :region_id
+            )"""
+        values = [  
+            country_id, 
+            country_name,
+            region_id
+            ]
+        rs = cursor.execute(sql, values)
+        connection.commit()
+
+    return 'Se ha insertado una pais'
+
+@app.route('Insert_loc')
+def insert_loc():
+    data = request.get_json()
+    action = data.get('action')
+
+    if action == 'insert_loc':
+        location_id = data.get('location_id')
+        street_address = data.get('street_address')
+        postal_code = data.get('postal_code')
+        city = data.get('city')
+        state_province = data.get('state_province')
+        country_id = data.get('country_id')
+        sql = """insert into locations 
+            (
+                location_id,
+                street_address,
+                postal_code,
+                city,
+                state_province,
+                country_id
+            )
+        values 
+            (
+                :location_id,
+                :street_address,
+                :postal_code,
+                :city,
+                :state_province,
+                :country_id
+            )"""
+        values = [  
+            location_id, 
+            street_address,
+            postal_code,
+            city,
+            state_province,
+            country_id
+            ]
+        rs = cursor.execute(sql, values)
+        connection.commit()
+
+    return 'Se ha insertado una locacion'
+
 #Actualizar puesto, salario de EMPLEADO (por id)
 @app.route('/Actualizar')
 def actualizar():
@@ -172,7 +273,6 @@ def consultar():
         rs = cursor.execute(sql, values)
         connection.commit()
         return str(rs.fetchall())
-    
     
 
 
