@@ -24,10 +24,8 @@ def count():
 @app.route('/Insertar')
 def insertar():
     data = request.get_json()
-    opt = data.get('opt')
-    
-
-    if opt == 'insert_employee':
+    action = data.get('action')
+    if action == 'insert_employee':
         e_id = data.get('id')
         first_name = data.get('first_name')
         last_name = data.get('last_name')
@@ -36,7 +34,7 @@ def insertar():
         hire_date = data.get('hire_date')
         job_id = data.get('job_id')
         salary = data.get('salary')
-        comission_pct = data.get('comission_pct')
+        commission_pct = data.get('commission_pct')
         manager_id = data.get('manager_id')
         department_id = data.get('department_id')
         sql = """insert into employees 
@@ -49,13 +47,13 @@ def insertar():
                 hire_date, 
                 job_id, 
                 salary, 
-                comission_pct, 
+                commission_pct, 
                 manager_id, 
                 department_id
             )
         values 
             (
-                :employee_id, 
+                :e_id, 
                 :first_name, 
                 :last_name, 
                 :email, 
@@ -63,10 +61,10 @@ def insertar():
                 to_date(:hire_date, 'YYYY-MM-DD'), 
                 :job_id, 
                 :salary, 
-                :comission_pct, 
+                :commission_pct, 
                 :manager_id, 
                 :department_id
-            );"""
+            )"""
 
         values = [  
             e_id, 
@@ -77,12 +75,13 @@ def insertar():
             hire_date, 
             job_id, 
             salary, 
-            comission_pct, 
+            commission_pct, 
             manager_id, 
             department_id
             ]
         rs = cursor.execute(sql, values)
         connection.commit()
+
     return 'Se ha insertado un empleado'
 
 #Actualizar puesto, salario de EMPLEADO (por id)
